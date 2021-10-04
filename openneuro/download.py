@@ -18,10 +18,12 @@ import httpx
 # Manually "enforce" notebook mode in VS Code to get progress bar widgets
 # Can be removed once https://github.com/tqdm/tqdm/issues/1213 has been merged
 from tqdm.notebook import tqdm_notebook
-if 'VSCODE_PID' in os.environ:
-    from tqdm.notebook import tqdm
-else:
-    from tqdm.auto import tqdm
+# if 'VSCODE_PID' in os.environ:
+#     from tqdm.notebook import tqdm
+# else:
+#     from tqdm.auto import tqdm
+
+from tqdm.asyncio import tqdm
 
 if isinstance(tqdm, tqdm_notebook):
     try:
